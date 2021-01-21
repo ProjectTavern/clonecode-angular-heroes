@@ -32,13 +32,13 @@ export class HeroService {
       );
   }
 
-  getHero(id: number): Observable<Hero> | null {
-    this.messageService.add(`HeroService: fetched hero id=${id}`);
-    const hero = HEROES.find(hero => hero.id === id);
+  getHero(id: number): Observable<Hero> {
+    const url = `${this.heroesUrl}/${id}`;
 
-    if (!hero) { return null; }
-
-    return of(hero);
+    return this.http.get<Hero>(url).pipe(
+      tap(_ => this.log(`fetched hero id=${id}`)),
+      catchError(this.handleError<Hero>(`getHero id=${id}`))
+    );
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
