@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { CrisisListComponent } from './crisis-list/crisis-list.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CrisisListComponent } from './crisis-list/crisis-list.component';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    CrisisListComponent
+    CrisisListComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
